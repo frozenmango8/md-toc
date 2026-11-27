@@ -1,0 +1,68 @@
+{
+  "name": "md-toc",
+  "version": "1.0.0",
+  "description": "Generate and update a GitHub-compatible table of contents for Markdown files.",
+  "type": "module",
+  "bin": {
+    "md-toc": "./dist/cli.js"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "sideEffects": false,
+  "engines": {
+    "node": ">=18"
+  },
+  "author": "frozenmango8",
+  "license": "MIT",
+  "keywords": [
+    "markdown",
+    "toc",
+    "table-of-contents",
+    "github",
+    "anchor",
+    "slug",
+    "cli",
+    "readme",
+    "gfm",
+    "commonmark",
+    "documentation"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frozenmango8/md-toc.git"
+  },
+  "bugs": {
+    "url": "https://github.com/frozenmango8/md-toc/issues"
+  },
+  "homepage": "https://github.com/frozenmango8/md-toc#readme",
+  "scripts": {
+    "build": "tsc -p tsconfig.json && chmod +x dist/cli.js",
+    "prepare": "npm run build",
+    "typecheck": "tsc -p tsconfig.check.json --pretty false",
+    "test": "node --import tsx --test test/*.test.ts",
+    "toc": "node --import tsx src/cli.ts README.md CONTRIBUTING.md",
+    "prepublishOnly": "npm run build && npm test"
+  },
+  "dependencies": {
+    "github-slugger": "^2.0.0",
+    "mdast-util-from-markdown": "^2.1.0",
+    "mdast-util-gfm": "^3.1.0",
+    "micromark-extension-gfm": "^3.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.19.3",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3"
+  }
+}
