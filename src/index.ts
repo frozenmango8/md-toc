@@ -1,0 +1,6 @@
+export { TocError } from './errors.js'
+export type { TocErrorCode } from './errors.js'
+export { extractHeadings } from './parse.js'
+export { renderToc } from './render.js'
+export type { Bullet, Heading, TocOptions, TocResult } from './types.js'
+export { updateToc } from './update.js'
